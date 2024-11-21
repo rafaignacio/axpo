@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0270A50B-964C-45AF-A193-65BF91B7C1F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "axpo.console", "src\axpo.console\axpo.console.csproj", "{53BCC612-6E6A-46DD-9594-F6B8E0906074}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "axpo.reports.application", "src\axpo.reports.application\axpo.reports.application.csproj", "{91DE10BF-CA30-4B4A-B968-5B6636318C77}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{53BCC612-6E6A-46DD-9594-F6B8E0906074}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53BCC612-6E6A-46DD-9594-F6B8E0906074}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53BCC612-6E6A-46DD-9594-F6B8E0906074}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53BCC612-6E6A-46DD-9594-F6B8E0906074}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91DE10BF-CA30-4B4A-B968-5B6636318C77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91DE10BF-CA30-4B4A-B968-5B6636318C77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91DE10BF-CA30-4B4A-B968-5B6636318C77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91DE10BF-CA30-4B4A-B968-5B6636318C77}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{53BCC612-6E6A-46DD-9594-F6B8E0906074} = {0270A50B-964C-45AF-A193-65BF91B7C1F6}
+		{91DE10BF-CA30-4B4A-B968-5B6636318C77} = {0270A50B-964C-45AF-A193-65BF91B7C1F6}
+	EndGlobalSection
+EndGlobal
