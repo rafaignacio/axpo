@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "axpo.console", "src\axpo.co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "axpo.reports.application", "src\axpo.reports.application\axpo.reports.application.csproj", "{91DE10BF-CA30-4B4A-B968-5B6636318C77}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{A6216A63-4E18-418F-BC81-E00471A7D5C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "axpo.reports.application.tests", "tests\axpo.reports.application.tests\axpo.reports.application.tests.csproj", "{EAC8F70A-149A-412F-8513-9BD277E8736E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,9 +30,14 @@ Global
 		{91DE10BF-CA30-4B4A-B968-5B6636318C77}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91DE10BF-CA30-4B4A-B968-5B6636318C77}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91DE10BF-CA30-4B4A-B968-5B6636318C77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAC8F70A-149A-412F-8513-9BD277E8736E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAC8F70A-149A-412F-8513-9BD277E8736E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAC8F70A-149A-412F-8513-9BD277E8736E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAC8F70A-149A-412F-8513-9BD277E8736E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{53BCC612-6E6A-46DD-9594-F6B8E0906074} = {0270A50B-964C-45AF-A193-65BF91B7C1F6}
 		{91DE10BF-CA30-4B4A-B968-5B6636318C77} = {0270A50B-964C-45AF-A193-65BF91B7C1F6}
+		{EAC8F70A-149A-412F-8513-9BD277E8736E} = {A6216A63-4E18-418F-BC81-E00471A7D5C9}
 	EndGlobalSection
 EndGlobal
