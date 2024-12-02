@@ -59,5 +59,15 @@ public class ReportGeneratorShould
         output.IsSuccess.Should().BeTrue();
         output.Value.Should().BeEquivalentTo(_expectedData);
     }
+
+    [Test]
+    public async Task Indicate_failure_when_power_service_does_not_return_data()
+    {
+        var sut = new ReportGenerator(_powerService, TimeProvider.System);
+
+        var output = await sut.Generate();
+
+        output.IsSuccess.Should().BeFalse();
+    }
 }
 

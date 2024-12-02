@@ -5,5 +5,5 @@ namespace axpo.reports.application;
 
 public class ReportGenerator(IPowerService powerService, TimeProvider timeProvider)
 {
-    public async Task<Result<IList<ReportData>>> Generate() => Result.Failure<IList<ReportData>>("Could not generate report.");
+    public async Task<Result<IList<ReportData>>> Generate() => throw new NotImplementedException();
 }
