@@ -1,0 +1,60 @@
+[
+  {
+    "Date": "2023-07-02",
+    "Periods": [
+      { "Period": 1, "Volume":  100 },
+      { "Period": 2, "Volume":  100 },
+      { "Period": 3, "Volume":  100 },
+      { "Period": 4, "Volume":  100 },
+      { "Period": 5, "Volume":  100 },
+      { "Period": 6, "Volume":  100 },
+      { "Period": 7, "Volume":  100 },
+      { "Period": 8, "Volume":  100 },
+      { "Period": 9, "Volume":  100 },
+      { "Period": 10, "Volume":  100 },
+      { "Period": 11, "Volume":  100 },
+      { "Period": 12, "Volume":  100 },
+      { "Period": 13, "Volume":  100 },
+      { "Period": 14, "Volume":  100 },
+      { "Period": 15, "Volume":  100 },
+      { "Period": 16, "Volume":  100 },
+      { "Period": 17, "Volume":  100 },
+      { "Period": 18, "Volume":  100 },
+      { "Period": 19, "Volume":  100 },
+      { "Period": 20, "Volume":  100 },
+      { "Period": 21, "Volume":  100 },
+      { "Period": 22, "Volume":  100 },
+      { "Period": 23, "Volume":  100 },
+      { "Period": 24, "Volume":  100 }
+    ]
+  },
+  {
+    "Date": "2023-07-02",
+    "Periods": [
+      { "Period": 1, "Volume": 50 },
+      { "Period": 2, "Volume": 50 },
+      { "Period": 3, "Volume": 50 },
+      { "Period": 4, "Volume": 50 },
+      { "Period": 5, "Volume": 50 },
+      { "Period": 6, "Volume": 50 },
+      { "Period": 7, "Volume": 50 },
+      { "Period": 8, "Volume": 50 },
+      { "Period": 9, "Volume": 50 },
+      { "Period": 10, "Volume": 50 },
+      { "Period": 11, "Volume": 50 },
+      { "Period": 12, "Volume": -20 },
+      { "Period": 13, "Volume": -20 },
+      { "Period": 14, "Volume": -20 },
+      { "Period": 15, "Volume": -20 },
+      { "Period": 16, "Volume": -20 },
+      { "Period": 17, "Volume": -20 },
+      { "Period": 18, "Volume": -20 },
+      { "Period": 19, "Volume": -20 },
+      { "Period": 20, "Volume": -20 },
+      { "Period": 21, "Volume": -20 },
+      { "Period": 22, "Volume": -20 },
+      { "Period": 23, "Volume": -20 },
+      { "Period": 24, "Volume": -20 }
+    ]
+  }
+]
