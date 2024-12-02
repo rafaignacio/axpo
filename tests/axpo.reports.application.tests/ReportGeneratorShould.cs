@@ -50,7 +50,7 @@ public class ReportGeneratorShould
 
     [TestCase("2023-07-02T00:15+01:00")]
     [TestCase("2023-07-02T02:15+03:00")]
-    public async Task Generate_report_correctly_based_on_utc_date(string date)
+    public async Task Generate_report_correctly_based_passed_date(string date)
     {
         var sut = new ReportGenerator(_powerService, new FakeTimeProvider(DateTimeOffset.Parse(date)));
 
