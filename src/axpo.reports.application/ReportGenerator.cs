@@ -10,9 +10,14 @@ public class ReportGenerator(IPowerService powerService, TimeProvider timeProvid
     {
         try
         {
-            var trades = await powerService.GetTradesAsync(timeProvider.GetUtcNow().UtcDateTime);
+            var date = timeProvider.GetUtcNow().UtcDateTime;
+            var trades = (await powerService.GetTradesAsync(date)).ToList();
 
-            return Result.Success(ProcessTradeData(trades.ToList()));
+            return trades.Any()
+                ? Result.Success(ProcessTradeData(date, trades))
+                : Result.Failure<IList<ReportData>>(
+                    $"Power Service has not returned data for the requested date of {date:O}")
+;
         }
         catch (Exception e)
         {
@@ -21,5 +26,17 @@ public class ReportGenerator(IPowerService powerService, TimeProvider timeProvid
         }
     }
 
-    private static IList<ReportData> ProcessTradeData(IList<PowerTrade> data) => throw new NotImplementedException();
+    private static DateTime CleanseDateTime(DateTime date) => 
+        date.AddMilliseconds(-date.Millisecond).AddMinutes(-date.Minute).ToUniversalTime();
+
+    private static IList<ReportData> ProcessTradeData(DateTime date, IList<PowerTrade> data)
+    {
+        date = CleanseDateTime(date);
+        return data.SelectMany(trade => trade.Periods)
+            .GroupBy(p => p.Period)
+            .Select(group => new ReportData(date.AddHours(group.Key - 1),
+                Volume: group.Sum(ps => ps.Volume)))
+            .OrderBy(r => r.Datetime)
+            .ToList();
+    }
 }

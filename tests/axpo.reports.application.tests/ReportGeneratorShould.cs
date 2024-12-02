@@ -12,7 +12,7 @@ public class ReportGeneratorShould
     private IPowerService _powerService;
     private IList<PowerTrade> _example;
     private IList<ReportData> _expectedData;
-    private readonly TimeProvider _defaultDate = new FakeTimeProvider(DateTimeOffset.Parse("2023-07-01T23:15Z"));
+    private readonly TimeProvider _defaultDate = new FakeTimeProvider(DateTimeOffset.Parse("2023-07-01T21:15Z"));
 
     [SetUp]
     public void Setup()
@@ -35,12 +35,13 @@ public class ReportGeneratorShould
 
         foreach (var item in list)
         {
-            var powerTrade = PowerTrade.Create(DateTime.Parse((string)item.Date), 24);
+            (string date, int count) = (item.Date, item.Periods.Count);
+            var powerTrade = PowerTrade.Create(DateTime.Parse(date), count);
 
             foreach (var period in item.Periods)
             {
-                var powerPeriod = powerTrade.Periods.FirstOrDefault(p => p.Period == (int)period.Period);
-                powerPeriod.SetVolume((double)period.Volume);
+                (int periodValue, double volume) = (period.Period, period.Volume);
+                powerTrade.Periods[periodValue - 1].SetVolume(volume);
             }
 
             output.Add(powerTrade);
@@ -49,8 +50,8 @@ public class ReportGeneratorShould
         return output;
     }
 
-    [TestCase("2023-07-02T00:15+01:00")]
-    [TestCase("2023-07-02T02:15+03:00")]
+    [TestCase("2023-07-01T23:15+02:00")]
+    [TestCase("2023-07-02T00:15+03:00")]
     public async Task Generate_report_correctly_based_passed_date(string date)
     {
         var sut = new ReportGenerator(_powerService, new FakeTimeProvider(DateTimeOffset.Parse(date)),
