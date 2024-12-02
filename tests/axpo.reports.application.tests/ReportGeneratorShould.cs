@@ -1,5 +1,6 @@
 using Axpo;
 using FluentAssertions;
+using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Time.Testing;
 using Newtonsoft.Json;
 using NSubstitute;
@@ -52,7 +53,8 @@ public class ReportGeneratorShould
     [TestCase("2023-07-02T02:15+03:00")]
     public async Task Generate_report_correctly_based_passed_date(string date)
     {
-        var sut = new ReportGenerator(_powerService, new FakeTimeProvider(DateTimeOffset.Parse(date)));
+        var sut = new ReportGenerator(_powerService, new FakeTimeProvider(DateTimeOffset.Parse(date)),
+            NullLogger<ReportGenerator>.Instance);
 
         var output = await sut.Generate();
 
@@ -63,7 +65,7 @@ public class ReportGeneratorShould
     [Test]
     public async Task Indicate_failure_when_power_service_does_not_return_data()
     {
-        var sut = new ReportGenerator(_powerService, TimeProvider.System);
+        var sut = new ReportGenerator(_powerService, TimeProvider.System, NullLogger<ReportGenerator>.Instance);
 
         var output = await sut.Generate();
 
