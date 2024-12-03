@@ -1,10 +1,10 @@
 using Axpo;
 using CSharpFunctionalExtensions;
-using Microsoft.Extensions.Logging;
+using Serilog;
 
 namespace axpo.reports.application;
 
-public class ReportGenerator(IPowerService powerService, TimeProvider timeProvider, ILogger<ReportGenerator> logger)
+public class ReportGenerator(IPowerService powerService, TimeProvider timeProvider, ILogger logger)
 {
     public async Task<Result<IList<ReportData>>> Generate()
     {
@@ -21,13 +21,17 @@ public class ReportGenerator(IPowerService powerService, TimeProvider timeProvid
         }
         catch (Exception e)
         {
-            logger.LogError($"An exception occured at {DateTime.UtcNow:O} while generating report.", e);
+            logger.Error(e, $"An exception occured at {DateTime.UtcNow:O} while generating report.");
             return Result.Failure<IList<ReportData>>(e.Message);
         }
     }
 
     private static DateTime CleanseDateTime(DateTime date) => 
-        date.AddMilliseconds(-date.Millisecond).AddMinutes(-date.Minute).ToUniversalTime();
+        date.AddMilliseconds(-date.Millisecond)
+            .AddMicroseconds(-date.Microsecond)
+            .AddSeconds(-date.Second)
+            .AddMinutes(-date.Minute)
+            .ToUniversalTime();
 
     private static IList<ReportData> ProcessTradeData(DateTime date, IList<PowerTrade> data)
     {

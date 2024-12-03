@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Time.Testing;
 using Newtonsoft.Json;
 using NSubstitute;
+using Serilog;
 
 namespace axpo.reports.application.tests;
 
@@ -55,7 +56,7 @@ public class ReportGeneratorShould
     public async Task Generate_report_correctly_based_passed_date(string date)
     {
         var sut = new ReportGenerator(_powerService, new FakeTimeProvider(DateTimeOffset.Parse(date)),
-            NullLogger<ReportGenerator>.Instance);
+            Substitute.For<ILogger>());
 
         var output = await sut.Generate();
 
@@ -66,7 +67,7 @@ public class ReportGeneratorShould
     [Test]
     public async Task Indicate_failure_when_power_service_does_not_return_data()
     {
-        var sut = new ReportGenerator(_powerService, TimeProvider.System, NullLogger<ReportGenerator>.Instance);
+        var sut = new ReportGenerator(_powerService, TimeProvider.System, Substitute.For<ILogger>());
 
         var output = await sut.Generate();
 
